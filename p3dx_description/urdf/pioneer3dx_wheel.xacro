@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<!-- 
+<!--
 This is the xacro description of a wheel of the Pioneer 3DX.
 Copyright (C) 2013 Rafael Berkvens rafael.berkvens@uantwerpen.be
 
@@ -24,11 +24,11 @@ work original in ucs-ros-pkg.
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
 
 	<!-- properties (constants) -->
-	<property name="M_PI" value="3.14159" />
+	<xacro:property name="M_PI" value="3.14159" />
 
 	<!-- right/left hubcap + wheel -->
 	<xacro:macro name="p3dx_wheel" params="suffix parent reflect">
-	
+
 		<!-- wheel -->
 		<link name="p3dx_${suffix}_wheel">
 			<inertial>
@@ -86,7 +86,7 @@ work original in ucs-ros-pkg.
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<box size="0 0 0" />
+					<box size="0.001 0.001 0.001" />
 				</geometry>
 			</collision>
 		</link>
@@ -100,7 +100,7 @@ work original in ucs-ros-pkg.
 			<parent link="base_link" />
 			<child link="p3dx_${suffix}_wheel" />
 		</joint>
-		
+
 		<!-- gazebo elements -->
 
     <transmission name="${parent}_${suffix}_wheel_trans">
@@ -127,4 +127,3 @@ work original in ucs-ros-pkg.
 	</xacro:macro>
 
 </robot>
-

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<!-- 
+<!--
 This is the gazebo urdf description of a Pioneer 3DX.
 Copyright (C) 2013 Rafael Berkvens rafael.berkvens@uantwerpen.be
 
@@ -39,17 +39,17 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
   <gazebo reference="top_plate">
     <material>Gazebo/Black</material>
   </gazebo>
-  
+
   <!-- swivel -->
   <gazebo reference="swivel">
     <material>Gazebo/Grey</material>
   </gazebo>
-  
+
   <!-- center_hubcap -->
 	<gazebo reference="center_hubcap">
 		<material>Gazebo/Grey</material>
 	</gazebo>
-  
+
   <!-- center_wheel -->
 	<gazebo reference="center_wheel">
 		<material>Gazebo/Black</material>
@@ -58,8 +58,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 		<kp>1000000.0</kp>
 		<kd>1.0</kd>
 	</gazebo>
-  
-  <!-- front_sonar -->  
+
+  <!-- front_sonar -->
   <gazebo reference="front_sonar">
     <material value="Gazebo/Yellow" />
   </gazebo>
@@ -95,7 +95,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			<rpyOffsets>0 0 0</rpyOffsets>
 		</plugin>
 	</gazebo>
-	
+
 	<!-- lms100 -->
 	<gazebo reference="lms100">
 		<sensor type="ray" name="head_hokuyo_sensor">
@@ -118,8 +118,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				</range>
 				<noise>
 					<type>gaussian</type>
-					<!-- Noise parameters based on published spec for Hokuyo laser achieving 
-						"+-30mm" accuracy at range < 10m. A mean of 0.0m and stddev of 0.01m will 
+					<!-- Noise parameters based on published spec for Hokuyo laser achieving
+						"+-30mm" accuracy at range < 10m. A mean of 0.0m and stddev of 0.01m will
 						put 99.7% of samples within 0.03m of the true reading. -->
 					<mean>0.0</mean>
 					<stddev>0.01</stddev>
@@ -127,9 +127,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			</ray>
 			<plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_laser.so">
 				<topicName>${ns}/laser/scan</topicName>
-				<frameName>lms100</frameName>
+				<frameName>base_link</frameName>
 			</plugin>
 		</sensor>
 	</gazebo>
-  
+
 </robot>
